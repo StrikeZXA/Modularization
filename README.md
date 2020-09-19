@@ -29,8 +29,8 @@ if(!rootProject.ext.android.is_application.toBoolean()){
      applicationId "com.maniu.login"
   }
 ```
-  -
-``` 创建'src/main/manifest/AndroidManifest.xml'和'src/main/module',这样可以根据is_application切换不同的AndroidManifest.xml和Application,
+  - 创建'src/main/manifest/AndroidManifest.xml'和'src/main/module',这样可以根据is_application切换不同的AndroidManifest.xml和Application,
+```
 sourceSets{
         main{
             if(rootProject.ext.android.is_application.toBoolean()){
