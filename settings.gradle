@@ -1,0 +1,7 @@
+include ':annotation_compiler'
+include ':annotation'
+include ':arouter'
+include ':login'
+include ':member'
+include ':app'
+rootProject.name = "MN_2020_4_20"

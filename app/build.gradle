@@ -1,0 +1,39 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.maniu.mn_2020_4_20"
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation rootProject.ext.dependencies.publicImplementation
+    implementation project(rootProject.ext.dependencies.publicProject)
+
+    testImplementation rootProject.ext.dependencies.publicTest
+
+    androidTestImplementation rootProject.ext.dependencies.publicTestImplementation
+
+    annotationProcessor project(rootProject.ext.dependencies.annotationProcessor)
+
+    if(!rootProject.ext.android.is_application.toBoolean()){
+        implementation project(rootProject.ext.dependencies.otherModule)
+    }
+}
