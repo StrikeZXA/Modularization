@@ -1,17 +1,17 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.maniu.mn_2020_4_20"
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -25,20 +25,10 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
+    implementation rootProject.ext.dependencies.appcompat
+
     testImplementation rootProject.ext.dependencies.publicTest
 
     androidTestImplementation rootProject.ext.dependencies.publicTestImplementation
 
-    implementation rootProject.ext.dependencies.appcompat
-    implementation rootProject.ext.dependencies.constraintlayout
-
-    implementation project(rootProject.ext.dependencies.arouter)
-    implementation project(rootProject.ext.dependencies.base)
-    implementation project(rootProject.ext.dependencies.annotation)
-    annotationProcessor project(rootProject.ext.dependencies.annotation_compiler)
-
-    if(!rootProject.ext.android.is_application.toBoolean()){
-        implementation project(rootProject.ext.dependencies.login)
-        implementation project(rootProject.ext.dependencies.member)
-    }
 }

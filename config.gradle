@@ -6,26 +6,19 @@ ext {
             targetSdkVersion  : 29,
             versionCode       : 1,
             versionName       : "1.0",
-            is_application    : false,
+            is_application    : true,
     ]
     dependencies = [
             appcompat:'androidx.appcompat:appcompat:1.2.0',
             constraintlayout:'androidx.constraintlayout:constraintlayout:2.0.1',
-            annotation_compiler:'androidx.constraintlayout:constraintlayout:2.0.1',
 
+            login:[path:':login'],
+            member:[path:':member'],
+            annotation_compiler:[path: ':annotation_compiler'],
+            annotation:[path: ':annotation'],
+            arouter:[path: ':arouter'],
+            base:[path: ':base'],
 
-
-            publicImplementation:[
-                    'androidx.appcompat:appcompat:1.2.0',
-                    'androidx.constraintlayout:constraintlayout:2.0.1'
-            ],
-            annotationProcessor:[
-                    path: ':annotation_compiler'
-            ],
-            publicProject:[
-                    path: ':annotation',
-                    path:':arouter'
-            ],
             publicTestImplementation:[
                     'androidx.test.ext:junit:1.1.2',
                     'androidx.test.espresso:espresso-core:3.3.0',
@@ -33,9 +26,5 @@ ext {
             publicTest:[
                     'junit:junit:4.12',
             ],
-            otherModule:[
-                    path:':login',
-                    path:':member'
-            ]
     ]
 }
