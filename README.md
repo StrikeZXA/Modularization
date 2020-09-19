@@ -23,12 +23,14 @@ if(!rootProject.ext.android.is_application.toBoolean()){
       apply plugin: 'com.android.library'
   }
 ```
+
    - 根据is_application切换是否具有applicationId属性,module是没有applicationId的
 ```
   if(rootProject.ext.android.is_application.toBoolean()){
      applicationId "com.maniu.login"
   }
 ```
+
    - 创建'src/main/manifest/AndroidManifest.xml'和'src/main/module',这样可以根据is_application切换不同的AndroidManifest.xml和Application,
 ```
 sourceSets{
