@@ -7,6 +7,7 @@ ext {
             versionCode       : 1,
             versionName       : "1.0",
             is_application    : true,
+            isRelease    : false,
     ]
     dependencies = [
             appcompat:'androidx.appcompat:appcompat:1.2.0',
